@@ -3,14 +3,15 @@ package se.lexicon;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class SystemDeveloper extends Employee {
+public final class SystemDeveloper extends Employee {
     private String[] certificates;
     private String[] languages;
 
-    public SystemDeveloper(int id,String name,String[] certificates,String[] languages){
-        super(id,name,LocalDate.now());
+    public SystemDeveloper(int id,String name,double salary,LocalDate dateHired,String[] certificates,String[] languages){
+        super(id,name,salary,dateHired);
         this.certificates= certificates;
         this.languages=languages;
+        calculateSalary();
     }
 
     public String[] getCertificates() {
@@ -46,23 +47,20 @@ public class SystemDeveloper extends Employee {
 
 
     @Override
-    public void calculateSalary() {
-        setSalary(25000+(certificates.length*1000)+(languages.length*1500));
+    public double calculateSalary() {
+        return(getSalary()+(certificates.length*1000)+(languages.length*1500));
     }
 
     @Override
     public String getDescription() {
-        return "Employee Name: " + super.getName();
+        return "Employee Name: " + super.getName() + ",Salary: "+getSalary()+",HiredDate: "+getDateHired()+",Certificates: "+certificates+",Languages: "+languages;
     }
 
     @Override
     public String toString() {
-        return  "SystemDeveloper{" +
-                "id=" + getId() +
-                ", name='" + getName() + '\'' +
-                ", certificates=" + Arrays.toString(certificates) +
+        return "Employee Name: "+ getName()+",Salary: "+getSalary()+",HiredDate: "+getDateHired()+",SystemDeveloper{" +
+                "certificates=" + Arrays.toString(certificates) +
                 ", languages=" + Arrays.toString(languages) +
-                ", salary=" + getSalary() +
                 '}';
     }
 }

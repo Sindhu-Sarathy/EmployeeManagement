@@ -9,10 +9,10 @@ public abstract class Employee {
     private double salary;
     private LocalDate dateHired;
 
-    public Employee(int id,String name,LocalDate dateHired){
+    public Employee(int id,String name,double salary,LocalDate dateHired){
         this.id=id;
         this.name=name;
-        this.salary=25000;
+        this.salary=salary;
         this.dateHired= LocalDate.now();
     }
 
@@ -29,6 +29,7 @@ public abstract class Employee {
     }
 
     public double getSalary() {
+
         return salary;
     }
 
@@ -40,13 +41,19 @@ public abstract class Employee {
         return dateHired;
     }
 
-     public abstract void calculateSalary();
+     public abstract double calculateSalary();
 
     public String getDescription(){
         return "Name:"+name;
     }
 
-    public String toString(){
-        return "The Employee Details are:"+name;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", dateHired=" + dateHired +
+                '}';
     }
 }
