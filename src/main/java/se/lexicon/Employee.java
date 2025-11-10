@@ -9,10 +9,10 @@ public abstract class Employee {
     private double salary;
     private LocalDate dateHired;
 
-    public Employee(int id,String name,double salary,LocalDate dateHired){
+    public Employee(int id,String name,LocalDate dateHired){
         this.id=id;
         this.name=name;
-        this.salary=salary;
+        this.salary=25000;
         this.dateHired= LocalDate.now();
     }
 

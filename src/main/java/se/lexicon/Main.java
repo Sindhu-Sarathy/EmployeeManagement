@@ -11,9 +11,14 @@ public class Main {
         String[] certificates={"SCRUM","AWS"};
         String[] languages={"DotNet","Java"};
 
-        Employee developer=new SystemDeveloper(1,"Sindhu",25000, LocalDate.now(), certificates,languages);
+        Employee developer=new SystemDeveloper(1,"Sindhu", LocalDate.now(), certificates,languages);
 
         System.out.println("The Salary is: "+ developer.calculateSalary());
         System.out.println(developer.toString());
+
+        String[] clients={"Amazon","Google"};
+        Employee sp=new SalesPerson(2,"Sindhu",LocalDate.now(),clients,2);
+        System.out.println("The salary is:"+sp.calculateSalary());
+        System.out.println(sp.toString());
     }
 }
